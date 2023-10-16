@@ -1,5 +1,5 @@
 package obj
 
-type PersonalMobility interface {
-	Produce()
+type TeamComponent interface {
+	Listing()
 }

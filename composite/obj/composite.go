@@ -2,18 +2,28 @@ package obj
 
 import "fmt"
 
-type Company struct {
-	PMs     []PersonalMobility
-	IoTName string
+type Team struct {
+	Teams       []Team
+	TeamMembers []TeamMember
+	TeamName    string
 }
 
-func (g *Company) Produce() {
-	fmt.Printf("%s can produce below models.\n", g.IoTName)
-	for _, composite := range g.PMs {
-		composite.Produce()
+func (t *Team) Listing() {
+	fmt.Printf("%s has below team members\n", t.TeamName)
+	fmt.Printf("teamMember:%s\n", t.TeamMembers)
+	for _, composite := range t.Teams {
+		composite.Listing()
 	}
 }
 
-func (g *Company) AddPM(pm PersonalMobility) {
-	g.PMs = append(g.PMs, pm)
+func (t *Team) AddTeam(teams ...Team) {
+	for _, team := range teams {
+		t.Teams = append(t.Teams, team)
+	}
+}
+
+func (t *Team) AddTeamMember(members ...TeamMember) {
+	for _, member := range members {
+		t.TeamMembers = append(t.TeamMembers, member)
+	}
 }

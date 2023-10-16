@@ -2,14 +2,14 @@ package obj
 
 import "fmt"
 
-type Scooter struct {
-	ModelName string
+type TeamMember struct {
+	MemberName string
 }
 
-func (s *Scooter) Produce() {
-	fmt.Printf("Produced Scooter ModelName:%s\n", s.ModelName)
+func (s *TeamMember) Listing() {
+	fmt.Printf("This is TeamMember :%s\n", s.MemberName)
 }
 
-func (s *Scooter) GetScooterName() string {
-	return s.ModelName
+func (s *TeamMember) GetTeamMemberName() string {
+	return s.MemberName
 }

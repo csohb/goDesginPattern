@@ -3,30 +3,39 @@ package main
 import "goDesginPattern/composite/obj"
 
 func main() {
-	scooter1 := &obj.Scooter{ModelName: "max pro"}
-	scooter2 := &obj.Scooter{ModelName: "max plus"}
-	scooter3 := &obj.Scooter{ModelName: "K2"}
+	member1 := &obj.TeamMember{MemberName: "allen"}
+	member2 := &obj.TeamMember{MemberName: "tony"}
+	member3 := &obj.TeamMember{MemberName: "kevin"}
+	member4 := &obj.TeamMember{MemberName: "dash"}
+	member5 := &obj.TeamMember{MemberName: "winter"}
+	member6 := &obj.TeamMember{MemberName: "noel"}
 
-	segway := &obj.Company{
-		IoTName: "Segway",
+	devOps := &obj.Team{
+		TeamName: "devOps",
 	}
 
-	segway.AddPM(scooter1)
-	segway.AddPM(scooter2)
+	devOps.AddTeamMember(*member1, *member2, *member4)
 
-	msIoT := &obj.Company{
-		IoTName: "Microworks",
+	tcpTeam := &obj.Team{
+		TeamName: "tcp",
 	}
 
-	gbike := &obj.Company{
-		IoTName: "Gbike",
+	tcpTeam.AddTeamMember(*member3, *member5, *member6)
+
+	k2Team := &obj.Team{
+		TeamName: "K2",
 	}
 
-	gbike.AddPM(segway)
-	gbike.AddPM(msIoT)
+	k2Team.AddTeamMember(*member2)
 
-	msIoT.AddPM(scooter3)
+	dev2Team := &obj.Team{
+		TeamName: "개발2팀",
+	}
 
-	gbike.Produce()
+	dev2Team.AddTeamMember(*member1, *member2, *member3, *member4, *member5, *member6)
+
+	dev2Team.AddTeam(*devOps, *tcpTeam, *k2Team)
+
+	dev2Team.Listing()
 
 }
