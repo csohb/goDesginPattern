@@ -13,6 +13,9 @@ func (t *Team) Listing() {
 	fmt.Printf("teamMember:%s\n", t.TeamMembers)
 	for _, composite := range t.Teams {
 		composite.Listing()
+		for _, member := range composite.TeamMembers {
+			member.Listing()
+		}
 	}
 }
 
