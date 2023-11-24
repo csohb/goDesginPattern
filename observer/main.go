@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"goDesginPattern/observer/scooterStatus"
 )
 
@@ -27,6 +28,13 @@ func main() {
 	status.Register(batteryLowProcessor)
 	status.Register(tripJurisdictionProcessor)
 
+	fmt.Println("is geofence:", status.IsGeofence)
+	fmt.Println("is batteryLow:", status.IsBatteryLow)
+	fmt.Println("is trip-jurisdiction:", status.IsTripJurisdiction)
+
 	status.UpdateScooterBatteryStatus(19, 127.1234, 37.1234)
 
+	fmt.Println("is geofence:", status.IsGeofence)
+	fmt.Println("is batteryLow:", status.IsBatteryLow)
+	fmt.Println("is trip-jurisdiction:", status.IsTripJurisdiction)
 }
