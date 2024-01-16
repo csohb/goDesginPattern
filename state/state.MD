@@ -2,7 +2,6 @@
 ```
 상태
 Battery Off State
-Battery On State
 Lock State
 Unlock State
 
@@ -13,4 +12,6 @@ charge
 locking
 unlocking
 riding
+
+battery >= 20 일때 라이딩 가능
 ```
